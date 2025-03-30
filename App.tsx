@@ -1,130 +1,141 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
 import React from 'react';
-import type {PropsWithChildren} from 'react';
-import {
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
+import {View, Text, StyleSheet, Image, Dimensions} from 'react-native';
+import {NavigationContainer} from '@react-navigation/native';
+import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
+import {Provider as PaperProvider} from 'react-native-paper';
+import ManufactureScreen from './core/screen/Manufacture';
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+// Các màn hình
+const OverviewScreen = () => (
+  <View style={styles.screen}>
+    <Text>Trang Chủ</Text>
+  </View>
+);
 
-type SectionProps = PropsWithChildren<{
-  title: string;
-}>;
+const OrdersScreen = () => (
+  <View style={styles.screen}>
+    <Text>Đơn Hàng</Text>
+  </View>
+);
 
-function Section({children, title}: SectionProps): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
+const ChartGanttScreen = () => (
+  <View style={styles.screen}>
+    <Text>Hồ Sơ</Text>
+  </View>
+);
+
+const MoreScreen = () => (
+  <View style={styles.screen}>
+    <Text>Xem Thêm</Text>
+  </View>
+);
+
+// Tạo Bottom Tab Navigator
+const Tab = createMaterialBottomTabNavigator();
+const screenHeight = Dimensions.get('window').height;
+const App = () => {
   return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
+    <PaperProvider>
+      <NavigationContainer>
+        <Tab.Navigator
+          initialRouteName="Manufacture"
+          activeColor="#0375F3"
+          inactiveColor="#9295A4"
+          barStyle={styles.bottomBar}>
+          <Tab.Screen
+            name="Overview"
+            component={OverviewScreen}
+            options={{
+              tabBarLabel: 'Tổng quan',
+              tabBarIcon: ({focused}) => (
+                <Image
+                  source={require('./core/image/overview.png')}
+                  style={[styles.icon, focused && styles.iconActive]}
+                  resizeMode="contain"
+                />
+              ),
+            }}
+          />
+          <Tab.Screen
+            name="Orders"
+            component={OrdersScreen}
+            options={{
+              tabBarLabel: 'Đơn Hàng',
+              tabBarIcon: ({focused}) => (
+                <Image
+                  source={require('./core/image/order.png')}
+                  style={[styles.icon, focused && styles.iconActive]}
+                  resizeMode="contain"
+                />
+              ),
+            }}
+          />
+          <Tab.Screen
+            name="ChartGantt"
+            component={ChartGanttScreen}
+            options={{
+              tabBarLabel: 'Sơ đồ Gantt',
+              tabBarIcon: ({focused}) => (
+                <Image
+                  source={require('./core/image/chartgantt.png')}
+                  style={[styles.icon, focused && styles.iconActive]}
+                  resizeMode="contain"
+                />
+              ),
+            }}
+          />
+          <Tab.Screen
+            name="Manufacture"
+            component={ManufactureScreen}
+            options={{
+              tabBarLabel: 'Lệnh SX',
+              tabBarIcon: ({focused}) => (
+                <Image
+                  source={require('./core/image/manufacture.png')}
+                  style={[styles.icon, focused && styles.iconActive]}
+                  resizeMode="contain"
+                />
+              ),
+            }}
+          />
+          <Tab.Screen
+            name="More"
+            component={MoreScreen}
+            options={{
+              tabBarLabel: 'Xem thêm',
+              tabBarIcon: ({focused}) => (
+                <Image
+                  source={require('./core/image/viewmore.png')}
+                  style={[styles.icon, focused && styles.iconActive]}
+                  resizeMode="contain"
+                />
+              ),
+            }}
+          />
+        </Tab.Navigator>
+      </NavigationContainer>
+    </PaperProvider>
   );
-}
-
-function App(): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
-  /*
-   * To keep the template simple and small we're adding padding to prevent view
-   * from rendering under the System UI.
-   * For bigger apps the reccomendation is to use `react-native-safe-area-context`:
-   * https://github.com/AppAndFlow/react-native-safe-area-context
-   *
-   * You can read more about it here:
-   * https://github.com/react-native-community/discussions-and-proposals/discussions/827
-   */
-  const safePadding = '5%';
-
-  return (
-    <View style={backgroundStyle}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
-      <ScrollView
-        style={backgroundStyle}>
-        <View style={{paddingRight: safePadding}}>
-          <Header/>
-        </View>
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-            paddingHorizontal: safePadding,
-            paddingBottom: safePadding,
-          }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.tsx</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
-        </View>
-      </ScrollView>
-    </View>
-  );
-}
+};
 
 const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
+  screen: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#CDE4FD',
   },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
+  bottomBar: {
+    backgroundColor: 'white',
+    height: screenHeight * 0.1,
   },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
+  icon: {
+    width: 24,
+    height: 24,
+    tintColor: '#9295A4',
   },
-  highlight: {
-    fontWeight: '700',
+  iconActive: {
+    tintColor: '#0375F3',
   },
 });
 

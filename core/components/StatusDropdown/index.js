@@ -34,7 +34,7 @@ const statusData = [
   },
 ];
 
-const Index = ({selectedStatus, toggleStatus}) => {
+const Index = ({selectedStatus, filterStatus}) => {
   const [isDropdownVisible, setDropdownVisible] = useState(false);
   const animatedHeight = useRef(new Animated.Value(0)).current;
 
@@ -82,7 +82,7 @@ const Index = ({selectedStatus, toggleStatus}) => {
                 borderColor: '#e9e9e9',
               },
             ]}
-            onPress={() => toggleStatus(item.status)}
+            onPress={() => filterStatus(item.status)}
             key={item.id}>
             <Ionicons
               name={

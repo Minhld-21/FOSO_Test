@@ -14,8 +14,7 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 
 import styles from './styles';
 import SideSheet from './components/SideSheet';
-import {Icon, colors} from '../../styles';
-import {logo} from '../../../assets/svg/logo.svg';
+import {Icon} from '../../styles';
 const Manufacture = () => {
   const [modalSideSheet, setModalSideSheet] = useState(false);
 
@@ -37,13 +36,7 @@ const Manufacture = () => {
           <TouchableOpacity
             style={styles.btnShideSheetHeader}
             onPress={handleModal}>
-            <Icon
-              uri={logo}
-              type="Feather"
-              name="align-justify"
-              color="white"
-              size={18}
-            />
+            <Icon type="Feather" name="align-justify" color="white" size={18} />
           </TouchableOpacity>
           <Text style={styles.headerText}>Lệnh sản xuất</Text>
         </LinearGradient>

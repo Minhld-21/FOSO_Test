@@ -1,10 +1,11 @@
 import React from 'react';
-import {View, Text, StyleSheet, Image, Dimensions} from 'react-native';
+import {View, Text, StyleSheet, Image} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
 import {Provider as PaperProvider} from 'react-native-paper';
-import ManufactureScreen from './core/screen/Manufacture';
 
+import ManufactureScreen from './src/features/Manufactory';
+import {FontStyles, colors, sizes, screenHeight} from './src/styles';
 // Các màn hình
 const OverviewScreen = () => (
   <View style={styles.screen}>
@@ -32,7 +33,6 @@ const MoreScreen = () => (
 
 // Tạo Bottom Tab Navigator
 const Tab = createMaterialBottomTabNavigator();
-const screenHeight = Dimensions.get('window').height;
 const App = () => {
   return (
     <PaperProvider>
@@ -49,7 +49,7 @@ const App = () => {
               tabBarLabel: 'Tổng quan',
               tabBarIcon: ({focused}) => (
                 <Image
-                  source={require('./core/image/overview.png')}
+                  source={require('./assets/images/overview.png')}
                   style={[styles.icon, focused && styles.iconActive]}
                   resizeMode="contain"
                 />
@@ -63,7 +63,7 @@ const App = () => {
               tabBarLabel: 'Đơn Hàng',
               tabBarIcon: ({focused}) => (
                 <Image
-                  source={require('./core/image/order.png')}
+                  source={require('./assets/images/order.png')}
                   style={[styles.icon, focused && styles.iconActive]}
                   resizeMode="contain"
                 />
@@ -77,7 +77,7 @@ const App = () => {
               tabBarLabel: 'Sơ đồ Gantt',
               tabBarIcon: ({focused}) => (
                 <Image
-                  source={require('./core/image/chartgantt.png')}
+                  source={require('./assets/images/chartgantt.png')}
                   style={[styles.icon, focused && styles.iconActive]}
                   resizeMode="contain"
                 />
@@ -91,7 +91,7 @@ const App = () => {
               tabBarLabel: 'Lệnh SX',
               tabBarIcon: ({focused}) => (
                 <Image
-                  source={require('./core/image/manufacture.png')}
+                  source={require('./assets/images/manufacture.png')}
                   style={[styles.icon, focused && styles.iconActive]}
                   resizeMode="contain"
                 />
@@ -105,7 +105,7 @@ const App = () => {
               tabBarLabel: 'Xem thêm',
               tabBarIcon: ({focused}) => (
                 <Image
-                  source={require('./core/image/viewmore.png')}
+                  source={require('./assets/images/viewmore.png')}
                   style={[styles.icon, focused && styles.iconActive]}
                   resizeMode="contain"
                 />
@@ -123,19 +123,19 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#CDE4FD',
+    backgroundColor: colors.light_gray,
   },
   bottomBar: {
-    backgroundColor: 'white',
+    backgroundColor: colors.white,
     height: screenHeight * 0.1,
   },
   icon: {
-    width: 24,
-    height: 24,
-    tintColor: '#9295A4',
+    width: sizes.xxxLarge,
+    height: sizes.xxxLarge,
+    tintColor: colors.gray,
   },
   iconActive: {
-    tintColor: '#0375F3',
+    tintColor: colors.primary,
   },
 });
 

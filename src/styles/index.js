@@ -8,7 +8,7 @@ const screenWidth = Dimensions.get('window').width;
 
 const colors = {
   primary: '#0375F3',
-  blue: '0B69D2',
+  blue: '#0B69D2',
   blackBlue: '#11315B',
   lightBlue: '#92BFF7',
   title: '#25387A',

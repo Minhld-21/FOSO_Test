@@ -1,10 +1,11 @@
-import {Text, TouchableOpacity, View} from 'react-native';
+import {Pressable, Text, TouchableOpacity, View} from 'react-native';
 import React, {memo} from 'react';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import LinearGradient from 'react-native-linear-gradient';
 
 import styles from './styles';
 import Progress from '../../Progress';
+import Tooltip from '../../Tooltip';
 const Index = memo(({item, onPress, isPinned = []}) => {
   console.log('render', item);
 
@@ -40,7 +41,7 @@ const Index = memo(({item, onPress, isPinned = []}) => {
           styleWrapper={styles.secondaryProgressWrapper}
           styleProgressBar={styles.secondaryProgressBar}
         />
-        <AntDesign name="infocirlce" size={10} color="#667085" />
+        <Tooltip data={item.progress} />
       </View>
     </LinearGradient>
   );

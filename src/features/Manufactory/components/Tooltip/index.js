@@ -4,7 +4,7 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import Modal from 'react-native-modal';
 
 import styles from './styles';
-
+import {px, py, screenHeight} from '../../../../themes';
 const Index = ({data}) => {
   const [isVisible, setIsVisible] = useState(false);
   const [position, setPosition] = useState({
@@ -13,7 +13,6 @@ const Index = ({data}) => {
   });
 
   const btnRef = useRef(null);
-  const screenHeight = Dimensions.get('window').height;
 
   const handleTooltip = () => {
     if (btnRef.current) {
@@ -22,14 +21,14 @@ const Index = ({data}) => {
         const tooltipHeight = screenHeight / 8;
         if (spaceBelow < tooltipHeight) {
           setPosition({
-            top: y - tooltipHeight + 20,
-            left: x - 15,
+            top: y - tooltipHeight + py(20),
+            left: x - px(15),
             placement: 'top',
           });
         } else {
           setPosition({
-            top: y + height + 15,
-            left: x - 15,
+            top: y + height + py(15),
+            left: x - px(15),
             placement: 'bottom',
           });
         }

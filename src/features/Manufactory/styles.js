@@ -1,6 +1,15 @@
 import {StyleSheet, Dimensions} from 'react-native';
 
-import {colors, sizes, spacing, FontStyles, screenHeight} from '../../styles';
+import {
+  colors,
+  sizes,
+  spacingX,
+  spacingY,
+  FontStyles,
+  screenHeight,
+  px,
+  py,
+} from '../../themes';
 
 const styles = StyleSheet.create({
   container: {
@@ -14,11 +23,11 @@ const styles = StyleSheet.create({
     gap: sizes.xxLarge,
   },
   header: {
-    height: screenHeight * 0.1,
+    height: screenHeight * 0.09,
     width: '100%',
     alignItems: 'flex-end',
     justifyContent: 'center',
-    paddingBottom: spacing.md,
+    paddingBottom: spacingY.md,
     flexDirection: 'row',
   },
   headerText: {
@@ -30,7 +39,7 @@ const styles = StyleSheet.create({
   btnShideSheetHeader: {
     position: 'absolute',
     paddingBottom: 14,
-    left: spacing.xxl,
+    left: spacingX.xxl,
     width: 40,
     height: 40,
     alignItems: 'center',
@@ -44,14 +53,14 @@ const styles = StyleSheet.create({
     fontStyle: FontStyles.regular,
   },
   btnStartPin: {
-    width: 289,
-    height: 56,
+    width: px(289),
+    height: py(56),
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: colors.primary,
     borderRadius: 8,
     flexDirection: 'row',
-    gap: spacing.sm,
+    gap: spacingX.sm,
   },
   txtButtonStartPin: {
     fontWeight: '400',

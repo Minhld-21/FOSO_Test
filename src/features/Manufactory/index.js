@@ -14,7 +14,7 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 
 import styles from './styles';
 import SideSheet from './components/SideSheet';
-import {Icon} from '../../styles';
+import {Icon} from '../../themes';
 const Manufacture = () => {
   const [modalSideSheet, setModalSideSheet] = useState(false);
 

@@ -1,6 +1,6 @@
 import {StyleSheet} from 'react-native';
 
-import {colors, sizes, spacing} from '../../../../styles';
+import {colors, sizes, spacingX, spacingY} from '../../../../themes';
 
 const styles = StyleSheet.create({
   btnTooltip: {
@@ -24,8 +24,8 @@ const styles = StyleSheet.create({
     elevation: 5,
     borderWidth: 1,
     borderColor: colors.light_gray,
-    gap: spacing.sm,
-    borderRadius: spacing.sm,
+    gap: spacingY.sm,
+    borderRadius: 4,
     position: 'absolute',
     left: 20,
   },
@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    gap: spacing.sm,
+    gap: spacingX.sm,
   },
   dot: {
     width: 13,

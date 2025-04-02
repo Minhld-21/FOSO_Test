@@ -5,7 +5,7 @@ import {createMaterialBottomTabNavigator} from '@react-navigation/material-botto
 import {Provider as PaperProvider} from 'react-native-paper';
 
 import ManufactureScreen from './src/features/Manufactory';
-import {FontStyles, colors, sizes, screenHeight} from './src/styles';
+import {colors, sizes, screenHeight} from './src/themes';
 // Các màn hình
 const OverviewScreen = () => (
   <View style={styles.screen}>

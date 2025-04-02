@@ -1,12 +1,6 @@
 import {StyleSheet, Dimensions} from 'react-native';
 
-import {
-  colors,
-  sizes,
-  spacing,
-  FontStyles,
-  screenHeight,
-} from '../../../../styles';
+import {colors, spacingX, px, py} from '../../../../themes';
 
 const styles = StyleSheet.create({
   container: {
@@ -20,12 +14,12 @@ const styles = StyleSheet.create({
   input: {
     flex: 1,
     color: colors.gray,
-    paddingHorizontal: spacing.md,
+    paddingHorizontal: spacingX.md,
   },
   btnSearch: {
     backgroundColor: colors.lightBlue,
-    width: '15%',
-    height: '105%',
+    width: px(40),
+    height: py(39),
     borderTopEndRadius: 8,
     borderBottomEndRadius: 8,
     alignItems: 'center',

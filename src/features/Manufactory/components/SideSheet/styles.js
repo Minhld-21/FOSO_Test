@@ -1,12 +1,15 @@
-import {StyleSheet, Dimensions} from 'react-native';
+import {StyleSheet} from 'react-native';
 
 import {
   colors,
   sizes,
-  spacing,
+  spacingX,
+  spacingY,
   FontStyles,
   screenWidth,
-} from '../../../../styles';
+  px,
+  py,
+} from '../../../../themes';
 
 const styles = StyleSheet.create({
   modal: {
@@ -17,13 +20,13 @@ const styles = StyleSheet.create({
     width: screenWidth * 0.7,
     height: '100%',
     backgroundColor: colors.white,
-    paddingHorizontal: spacing.md,
-    paddingTop: spacing.md,
+    paddingHorizontal: spacingX.md,
+    paddingTop: spacingY.md,
     shadowColor: '#000',
     shadowOpacity: 0.1,
     shadowRadius: 4,
     elevation: 5,
-    gap: spacing.md,
+    gap: spacingY.md,
   },
   txtTitle: {
     fontWeight: '500',
@@ -35,14 +38,14 @@ const styles = StyleSheet.create({
   },
   btnDeleteAllPin: {
     width: '100%',
-    height: 42,
+    height: py(42),
     borderWidth: 1,
     borderColor: '#ccc',
     borderRadius: 8,
     alignItems: 'center',
     justifyContent: 'space-between',
     flexDirection: 'row',
-    paddingHorizontal: spacing.md,
+    paddingHorizontal: spacingX.md,
   },
   txtDeleteAllPin: {
     fontWeight: '500',

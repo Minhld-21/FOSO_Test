@@ -3,10 +3,10 @@ import {StyleSheet} from 'react-native';
 import {
   colors,
   sizes,
-  spacing,
+  spacingX,
+  spacingY,
   FontStyles,
-  screenHeight,
-} from '../../../../../styles';
+} from '../../../../../themes';
 
 const styles = StyleSheet.create({
   wrapper: {
@@ -20,10 +20,10 @@ const styles = StyleSheet.create({
     borderRadius: 4,
     paddingVertical: 4,
     paddingLeft: 4,
-    paddingRight: spacing.md,
+    paddingRight: spacingX.md,
     borderLeftWidth: 5,
     borderColor: colors.primary,
-    gap: spacing.md,
+    gap: spacingY.md,
   },
   wrapperHorizontal: {
     flexDirection: 'row',
@@ -32,8 +32,8 @@ const styles = StyleSheet.create({
   },
   status: {
     borderRadius: 4,
-    paddingVertical: spacing.xs,
-    paddingHorizontal: spacing.sm,
+    paddingVertical: spacingY.xs,
+    paddingHorizontal: spacingX.sm,
   },
   txtStatus: {
     fontWeight: '400',
@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    gap: spacing.md,
+    gap: spacingX.md,
   },
   secondaryProgressWrapper: {
     backgroundColor: '#3EC3F733',

@@ -1,6 +1,6 @@
 import {StyleSheet} from 'react-native';
 
-import {colors, spacing, FontStyles} from '../../../../styles';
+import {colors, spacingX, spacingY, py, FontStyles} from '../../../../themes';
 
 const styles = StyleSheet.create({
   dropdownWrapper: {
@@ -12,13 +12,13 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    height: 36,
-    paddingHorizontal: spacing.md,
+    height: py(36),
+    paddingHorizontal: spacingX.md,
   },
   contentDropdownButton: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: spacing.xs,
+    gap: spacingY.xs,
   },
   txtDropdownButton: {
     fontSize: 14,
@@ -32,9 +32,9 @@ const styles = StyleSheet.create({
   dropdownOption: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: spacing.md,
-    paddingVertical: spacing.md,
-    paddingHorizontal: spacing.md,
+    gap: spacingX.md,
+    paddingVertical: spacingY.md,
+    paddingHorizontal: spacingX.md,
   },
   viewDropdownOption: {
     borderRadius: 8,
